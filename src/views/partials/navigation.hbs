@@ -18,33 +18,34 @@
           {{#if user}}
             {{#ifcond user.rol '2' }}
             <li class="nav-item">
-              <a class="nav-link" href="/work/registro">Perfil</a>
+              <a class="nav-link" href="/all-jobs">Lista de trabajos</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                {{name}}
+                {{user.name}}
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/">Publicar Trabajo</a>
+                <a class="dropdown-item" href="/work/registro">Perfil</a>
+                <a class="dropdown-item" href="/work/posted-job">Publicar Trabajo</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/users/logout">Cerrar session</a>
+                <a class="dropdown-item" href="/users/logout"><i class="fa fa-power-off" aria-hidden="true"></i>  Cerrar session</a>
               </div>
             </li>
             {{else}}
             <li class="nav-item">
-              <a class="nav-link" href="/all-jobs">Lista de Empleos</a>
+              <a class="nav-link" href="/all-jobs">Lista de trabajos</a>
             </li>
         <li class="nav-item dropdown">
           
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              Perfil Trabajador
+              {{user.name}}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="/work/registro">Perfil</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="/users/logout">Cerrar Sesion</a>
+              <a class="dropdown-item" href="/users/logout"> <i class="fa fa-power-off" aria-hidden="true"></i> Cerrar Sesion</a>
             </div>
           </li>
         {{/ifcond}}

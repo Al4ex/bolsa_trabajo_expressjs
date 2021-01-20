@@ -1,62 +1,78 @@
-<form action="/apli" method="post">
-    <div class="row">
-    <div class="col-md-10 mx-auto">
-        <div class="text-center">
-            <p>Se solicita:</p><h2>{{job.title}}</h2>
+<main class="container">
+    <form action="/apli" method="post">
+        <div class="row">
+            <div class="col-md-10 mx-auto">
+                <div class="text-center">
+                    <p>Se solicita:</p>
+                    <h2>{{job.title}}</h2>
+                </div>
+
+            </div>
+
+            <input type="hidden" name="title" value="{{job.title}}">
+            <input type="hidden" name="pliid" value="{{job._id}}">
+            <input type="hidden" name="jobduration" value="{{job.jobduration}}">
+            <input type="hidden" name="exper" value="{{job.exper}}">
+            <input type="hidden" name="description" value="{{job.description}}">
+            <input type="hidden" name="userid" value="{{job.user}}">
+            <input type="hidden" name="sueldo" value="{{job.sueldo}}">
+            <input type="hidden" name="times" value="{{job.times}}">
+            <input type="hidden" name="idapli" value="{{job._id}}">
+            <input type="hidden" name="name" value="{{job.name}}">
+            <input type="hidden" name="ubi" value="{{job.ubi}}">
+            <input type="hidden" name="nivel" value="{{job.nivel}}">
+            <input type="hidden" name="telf" value="{{job.telf}}">
+            <input type="hidden" name="image" value="{{job.image}}">
+
         </div>
-
-    </div>
-
-    <input type="hidden" name="title" value="{{job.title}}">
-    <input type="hidden" name="pliid" value="{{job._id}}">
-    <input type="hidden" name="jobduration" value="{{job.jobduration}}">
-    <input type="hidden" name="exper" value="{{job.exper}}">
-    <input type="hidden" name="description" value="{{job.description}}">
-    <input type="hidden" name="userid" value="{{job.user}}">
-    <input type="hidden" name="sueldo" value="{{job.sueldo}}">
-    <input type="hidden" name="times" value="{{job.times}}">
-    <input type="hidden" name="idapli" value="{{job._id}}">
-    <input type="hidden" name="name" value="{{job.name}}">
-    <input type="hidden" name="ubi" value="{{job.ubi}}">
-    <input type="hidden" name="nivel" value="{{job.nivel}}">
-    <input type="hidden" name="telf" value="{{job.telf}}">
-    <input type="hidden" name="image" value="{{job.image}}">
-    
-</div>
-<div class="c-im3 float-left">
-    {{#if job.image}}
-        <img class="card-img-top img-circles3 autofit3" src="{{job.image}}" alt="">
-    {{else}}
-        <img class="card-img-top img-circles3 autofit3" src="/img/default.jpg" alt="">    
-    {{/if}}
-    <p class="text-center">{{job.name}} {{#ifcond job.times "1"}}
-        <span class="badge badge-warning"> Medio Tiempo</span>
-        {{else}}
-        <span class="badge badge-info">Tiempo completo</span>
-        {{/ifcond}}
-    </p>
-</div>
-<div class="information mx-auto mt-5">
-        <div class="row text-center">
-            <div class="col-md-3"><h4>Ubicacion: </h3><p>{{job.ubi}}</p></div>
-            <div class="col-md-2"><h4>Sueldo: </h3><p>${{job.sueldo}}</p></div>
-            <div class="col-md-2"><h4>Experiencia: </h3><p>{{job.exper}}</p></div>
-            <div class="col-md-2"><h4>Horas de trabajo: </h3><p>{{job.jobduration}}</p></div>
+        <div class="c-im3 float-left">
+            {{#if job.image}}
+            <img class="card-img-top img-circles3 autofit3" src="{{job.image}}" alt="">
+            {{else}}
+            <img class="card-img-top img-circles3 autofit3" src="/img/default.jpg" alt="">
+            {{/if}}
+            <p class="text-center">{{job.name}} {{#ifcond job.times "1"}}
+                <span class="badge badge-warning"> Medio Tiempo</span>
+                {{else}}
+                <span class="badge badge-info">Tiempo completo</span>
+                {{/ifcond}}
+            </p>
         </div>
-    </div>
-<div class="row">
-    <div class="col-md-10 mx-auto">
-        <div class="text-center">
-            <h3 class="font-bold"><strong>Descripcion del trabajo:</strong></h5>
-            <h4>{{job.description}}</p>
+        <div class="information mx-auto mt-5">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <h4>Ubicacion: </h3>
+                        <p>{{job.ubi}}</p>
+                </div>
+                <div class="col-md-2">
+                    <h4>Sueldo: </h3>
+                        <p>${{job.sueldo}}</p>
+                </div>
+                <div class="col-md-2">
+                    <h4>Experiencia: </h3>
+                        <p>{{job.exper}}</p>
+                </div>
+                <div class="col-md-2">
+                    <h4>Horas de trabajo: </h3>
+                        <p>{{job.jobduration}}</p>
+                </div>
+            </div>
         </div>
+        <div class="row">
+            <div class="col-md-10 mx-auto">
+                <div class="text-center">
+                    <h3 class="font-bold"><strong>Descripcion del trabajo:</strong></h5>
+                        <h4>{{job.description}}</p>
+                </div>
 
-    </div>
+            </div>
 
-</div>
-<div class="row mt-5">
-    <div class="mx-auto">
-    <button type="submit" class="btn btn-primary btn-lg as">  <i class="fas fa-pencil-alt    "></i> Solicitar empleo</button>
-</div>
+        </div>
+        <div class="row mt-5">
+            <div class="mx-auto">
+                <button type="submit" class="btn btn-primary btn-lg as"> <i class="fas fa-pencil-alt    "></i> Solicitar
+                    empleo</button>
+            </div>
 
-</form>
+    </form>
+</main>

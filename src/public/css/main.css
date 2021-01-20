@@ -10,6 +10,8 @@ body {
     #fff,
     #fff
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding-top: 4.5rem;
+
 }
 
 .image {
@@ -59,16 +61,21 @@ body {
     top: 8%;
     z-index: 999;
     position: fixed;
+    top: 1rem;
+}
+.pad{
+  padding-left: 20px;
 }
 .cont{
   width: calc(100% - 250px);
-  padding-right: -500px;
-  padding-left: 300px;
+  
   margin-bottom: 1%;
   transition: all 0.3s;
   position: relative!important;
   min-height: 80vh;
   max-height: 100vh;
+  margin-right: 10%;
+  margin-left: 25%;
 }
 .perfil-bor{
   border-bottom: 1px solid #CCCCCC;
@@ -176,6 +183,22 @@ body {
 .boton{
   margin-right: 5%;
   margin-top: 3%;
+}
+.mb{
+  margin-bottom: 200px;
+  
+}
+#intro{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -100;
+  top: -4.5rem;
+}
+.dos{
+  height:80vh;
 }
 
 @media (max-width: 991px){
