@@ -1,0 +1,60 @@
+
+<div class="perfil-bor">
+		<h2>Lista de Empleos</h2>
+</div>
+{{#each job}}
+<div class="mt-4">
+    <div class="jumbotron jum">
+        <div class="row">
+            <div class="col-md-2">
+                {{#if image}}
+                <div class="c-im3">
+					<img class="card-img-top img-circles3 autofit3" src="{{image}}" alt="">
+				</div>
+                {{else}}
+                <div class="c-im3">
+                    <img class="card-img-top img-circles3 autofit3" src="/img/default.jpg" alt="">
+                </div>
+                {{/if}}
+                
+            </div>
+            <div class="col-md mt-2">
+                <div class="job-item-list-info">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h4 class="text-left">{{title}}</h4>
+                            <div class="mb-2">de {{name}}   {{#ifcond times "1"}}
+									 <span class="badge badge-warning"> Medio Tiempo</span>
+									{{else}}
+									 <span class="badge badge-info">Tiempo completo</span>
+									{{/ifcond}}</div>
+                            <div><strong>Sueldo Mensual: </strong><i class="fas fa-dollar-sign    "></i> {{sueldo}}</div>
+                        </div>
+                        <div class="col-md-4">
+                            <ul class="list-group">
+                                <li class="list-group"><strong>Ubicacion: </strong>{{ubi}}</li>
+                                <li class="list-group"><strong>Experencia: </strong> {{exper}} </li>
+                                <li class="list-group"><strong>Fecha de publicacion: </strong>{{../dateform}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="job-item-list-bottom">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="sub-cat">
+                                <a>{{nivel}}</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mt-2">
+                            <a href="/all-jobs/job/{{_id}}">  <button type="button" class="btn btn-primary">Ver Trabajo</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{else}}
+No hay nada
+{{/each}}

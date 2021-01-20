@@ -1,0 +1,260 @@
+<div class="row c ">
+	<div class="col-md-3 pt-5 usersidebar">
+		<div class="mx-auto text-center">
+			{{#if info.image }}
+			<center>
+				<div class="image">
+					<img src="{{info.image}}" alt="image" title="{{info.name}}" class=" img-circle autofit2">
+
+				</div>
+			</center>
+			{{else}}
+			<img src="/img/default.jpg" alt="Logo" class="rounded-circle mx-auto m-4 logo">
+			{{/if}}
+			<h4 class="card-title"> {{info.name }} {{ info.apds}} </h4>
+			<p class="font-italic">
+				{{#if info.nivel}}
+				{{#ifcond info.nivel '1' }}
+				Primaria
+				{{/ifcond}}
+				{{#ifcond info.nivel '2' }}
+				Secunadaria
+				{{/ifcond}}
+				{{#ifcond info.nivel '3' }}
+				Bachiller
+				{{/ifcond}}
+				{{#ifcond info.nivel '4' }}
+				Carrera
+				{{/ifcond}}
+				{{else}}
+				Nivel Educativo
+				{{/if}}
+			</p>
+
+		</div>
+		<div class="mx-auto text-left">
+			<div class="list-group" id="myList" role="tablist">
+				<a class="list-group-item list-group-item-action active" data-toggle="list" href="#home"
+					role="tab">Perfil</a>
+				<a class="list-group-item list-group-item-action" data-toggle="list" href="#profile" role="tab">Empleos
+					presentados</a>
+				<a class="list-group-item list-group-item-action" data-toggle="list" href="#messages"
+					role="tab">Curriculum</a>
+				<a class="list-group-item list-group-item-action" data-toggle="list" href="#settings" role="tab">Cambiar
+					contraseña </a>
+			</div>
+		</div>
+	</div>
+	<div class=" col-md cont">
+		<div class="tab-content">
+			<div class="tab-pane active" id="home" role="tabpanel">
+				<div class=" perfil-bor ">
+					<h2>Perfil</h2>
+				</div>
+				<form action="/updateperf" method="post">
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="inputEmail4">Nombre</label>
+							<input name="name" type="text" class="form-control" value="{{info.name}}">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="inputPassword4">Apellidos</label>
+							<input name="apds" required type="text" class="form-control" value="{{ info.apds}}">
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-md">
+							<label for="inputEmail4">Email</label>
+							<input name="email" required type="email" value="{{info.email}}" class="form-control"
+								id="inputEmail4">
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="inputPassword4">Nivel de Estudios terminado</label>
+							<select name="nivel" id="inputState" class="form-control">
+								{{#if info.nivel}}
+								{{#ifcond info.nivel '1' }}
+								<option value="1">Primaria</option>
+								<option value="2">Secunadaria</option>
+								<option value="3">Bachiller</option>
+								<option value="4">Carrera</option>
+								{{/ifcond}}
+								{{#ifcond info.nivel '2' }}
+								<option value="2">Secunadaria</option>
+								<option value="1">Primaria</option>
+								<option value="3">Bachiller</option>
+								<option value="4">Carrera</option>
+								{{/ifcond}}
+								{{#ifcond info.nivel '3' }}
+								<option value="3">Bachiller</option>
+								<option value="1">Primaria</option>
+								<option value="2">Secunadaria</option>
+								<option value="4">Carrera</option>
+								{{/ifcond}}
+								{{#ifcond info.nivel '4' }}
+								<option value="4">Carrera</option>
+								<option value="1">Primaria</option>
+								<option value="2">Secunadaria</option>
+								<option value="3">Bachiller</option>
+								{{/ifcond}}
+								{{else}}
+								<option value="0">Elija una opcion</option>
+								<option value="1">Primaria</option>
+								<option value="2">Secunadaria</option>
+								<option value="3">Bachiller</option>
+								<option value="4">Carrera</option>
+								{{/if}}
+							</select>
+						</div>
+						<div class="form-group col-md-6">
+							<label for="inputPassword4">Nacimiento</label>
+							{{#if info.nacimiento}}
+							<input name="nacimiento" value="{{info.nacimiento}}" type="date" class="form-control"
+								id="inputPassword4">
+							{{else}}
+							<input name="nacimiento" type="date" class="form-control" id="inputPassword4">
+							{{/if}}
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="inputEmail4">Genero</label>
+							<select name="genero" id="inputState" class="form-control">
+								{{#if info.genero}}
+								{{#ifcond info.genero '2' }}
+								<option value="2">Femenino</option>
+								<option value="1">Masculino</option>
+								{{else}}
+								<option value="1">Masculino</option>
+								<option value="2">Femenino</option>
+								{{/ifcond}}
+								{{else}}
+								<option value="0">Elija una opcion</option>
+								<option value="1">Masculino</option>
+								<option value="2">Femenino</option>
+								{{/if}}
+							</select>
+						</div>
+						<div class="form-group col-md-6">
+							<label for="inputPassword4">Telefono</label>
+							<input name="telf" value="{{info.telf}}" type="number" class="form-control"
+								id="inputPassword4">
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary">Actualizar</button>
+				</form>
+
+				<form action="/workerprofile" method="post" enctype="multipart/form-data">
+					<div class="form-group mt-3">
+						<label for="exampleInputFile">Subir foto de perfil</label>
+						<input accept="image/*" type="file" name="image" class="form-control-file" id="exampleInputFile"
+							aria-describedby="fileHelp">
+						<small id="fileHelp" class="form-text text-muted">Coloca una foto para tu perfil</small>
+					</div>
+					<button type="submit" class="btn btn-primary">Actualizar</button>
+				</form>
+			</div>
+			<div class="tab-pane" id="profile" role="tabpanel">
+				<div class=" perfil-bor ">
+					<h2>Empleos presentados</h2>
+				</div>
+				<div class="row row-cols-1 a row-cols-md-3">
+					{{#each app}}
+					<a href="/all-jobs/job/{{idapli}}">
+						<div class="col mb-4">
+						<div class="card h-100">
+							
+							<div class="image-c">
+								<form action="/work/delets/{{idapli}}?_method=DELETE" method="POST">
+									<input type="hidden" name="_method" value="DELETE">
+									<div class="boton rounded float-right">
+										<button type="submit" class="close" data-dismiss="" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+								</form>
+								<div class="c-im">
+									<img class="card-img-top img-circles autofit" src="{{image}}" alt="">
+								</div>
+								{{#ifcond times "1"}}
+								<p class="text-right"><span class="badge badge-warning">Medio Tiempo</span></p>
+								{{else}}
+								<p class="text-right"><span class="badge badge-info">Tiempo completo</span></p>
+								{{/ifcond}}
+							</div>
+							<div class="card-body " style="background-color: #F5F5F5;">
+								<h5 class="card-title">{{title}}</h5>
+								<p class="card-text">Experiencia previa: {{exper}}</p>
+								<p class="card-text">Contacto: {{telf}}</p>
+							</div>
+						</div>
+					</div>
+					</a>
+					{{else}}
+					<div class="col-md-6 mx-auto pt-5">
+						<div class="card text-center">
+							<h3 class="card-header  alert-dismissible alert-danger"><strong>Sin solicitudes</strong>
+							</h3>
+							<div class="card-body  ">
+								<h5 class="card-title">Por ahora no se han presentado.</h5>
+								<p class="card-text"></p>
+							</div>
+						</div>
+					</div>
+					{{/each}}
+				</div>
+			</div>
+			<div class="tab-pane" id="messages" role="tabpanel">
+				<form action="" method="post">
+					<div class="form-row">
+						<div class="form-group col-md-6 mt-3">
+							<label for="exampleInputFile">Subir Curriculum</label>
+							<input type="file" class="form-control-file" id="exampleInputFile"
+								aria-describedby="fileHelp">
+							<small id="fileHelp" class="form-text text-muted">Suba un archivo para su
+								curriculumn</small>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary">Actualizar</button>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="inputEmail4"></label>
+							<input type="text" class="form-control invisible" id="inputEmail4">
+						</div>
+						<div class="form-group col-md-4">
+							<label for="inputPassword4"></label>
+							<input type="text" class="form-control invisible" id="inputPassword4">
+						</div>
+					</div>
+
+				</form>
+			</div>
+			<div class="tab-pane" id="settings" role="tabpanel">
+				<form action="/changepass" method="POST">
+					<div class="form-group">
+						<label for="formGroupExampleInput">Nueva Contraseña</label>
+						<input type="text" class="form-control" name="password" id="formGroupExampleInput"
+							placeholder="*******">
+					</div>
+					<div class="form-group">
+						<label for="formGroupExampleInput2">Confirmar Contraseña</label>
+						<input type="text" class="form-control" name="confirm_password" id="formGroupExampleInput2"
+							placeholder="*******">
+					</div>
+					<button type="submit" class="btn btn-primary">Actualizar</button>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="inputEmail4"></label>
+							<input type="text" class="form-control invisible" id="inputEmail4">
+						</div>
+						<div class="form-group col-md-4">
+							<label for="inputPassword4"></label>
+							<input type="text" class="form-control invisible" id="inputPassword4">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

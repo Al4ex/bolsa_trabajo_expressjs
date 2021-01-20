@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="/">ISC</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">Acerca de</a>
+          </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+
+          {{#if user}}
+            {{#ifcond user.rol '2' }}
+            <li class="nav-item">
+              <a class="nav-link" href="/work/registro">Perfil</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                {{name}}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/">Publicar Trabajo</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/users/logout">Cerrar session</a>
+              </div>
+            </li>
+            {{else}}
+            <li class="nav-item">
+              <a class="nav-link" href="/all-jobs">Lista de Empleos</a>
+            </li>
+        <li class="nav-item dropdown">
+          
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Perfil Trabajador
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/work/registro">Perfil</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/users/logout">Cerrar Sesion</a>
+            </div>
+          </li>
+        {{/ifcond}}
+          {{else}}
+          <li class="nav-item">
+            <a class="nav-link" href="/users/signin">ingresar</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Registrar
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/users/signup">Empleados</a>
+              <a class="dropdown-item" href="/employer/signup">Trabajos</a>
+            </div>
+          </li>
+          {{/if}}
+        
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-md-10 mx-auto">
+        <div class="text-center">
+            <p>Se solicita:</p><h2>{{job.title}}</h2>
+        </div>
+
+    </div>
+    
+</div>
+<div class="c-im3 float-left">
+    {{#if job.image}}
+        <img class="card-img-top img-circles3 autofit3" src="{{job.image}}" alt="">
+    {{else}}
+        <img class="card-img-top img-circles3 autofit3" src="/img/default.jpg" alt="">    
+    {{/if}}
+    <p class="text-center">{{job.name}} {{#ifcond job.times "1"}}
+        <span class="badge badge-warning"> Medio Tiempo</span>
+        {{else}}
+        <span class="badge badge-info">Tiempo completo</span>
+        {{/ifcond}}
+    </p>
+</div>
+<div class="information mx-auto">
+        <div class="row text-center">
+            <div class="col-md-3"><h4>Ubicacion: </h3><p>{{job.ubi}}</p></div>
+            <div class="col-md-2"><h4>Sueldo: </h3><p>${{job.sueldo}}</p></div>
+            <div class="col-md-2"><h4>Experiencia: </h3><p>{{job.exper}}</p></div>
+            <div class="col-md-2"><h4>Horas de trabajo: </h3><p>{{job.jobduration}}</p></div>
+        </div>
+    </div>
+<div class="row">
+    <div class="col-md-10 mx-auto">
+        <div class="text-center">
+            <h3 class="font-bold"><strong>Descripcion del trabajo:</strong></h5>
+            <h4>{{job.description}}</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="mx-auto">
+    <button type="button" class="btn btn-danger btn-lg disabled as"><i class="fa fa-lock" aria-hidden="true"></i>  Registrese como empleado pasa solicitar</button>
+</div>
+</div>

@@ -1,0 +1,173 @@
+<div class="row c">
+	<div class="col-md-3 pt-5 usersidebar">
+		<div class="mx-auto text-center">
+			{{#if info.image }}
+			<center>
+				<div class="image">
+					<img src="{{info.image}}" alt="image" title="{{info.name}}" class=" img-circle autofit2">
+				</div>
+			</center>
+			{{else}}
+			<img src="/img/default.jpg" alt="Logo" class="rounded-circle mx-auto m-4 logo">
+			{{/if}}
+			<h4 class="card-title">{{info.name}}</h4>
+			<a class="" href="/work/posted-job"><button type="button" class="btn btn-outline-primary">Publicar
+					empleo</button></a>
+		</div>
+		<div class="mx-auto mt-3 text-left">
+			<div class="list-group" id="myList" role="tablist">
+				<a class="list-group-item list-group-item-action active" data-toggle="list" href="#home"
+					role="tab">Perfil</a>
+				<a class="list-group-item list-group-item-action" data-toggle="list" href="#profile" role="tab">Empleos
+					publicados</a>
+				<a class="list-group-item list-group-item-action" data-toggle="list" href="#settings" role="tab">Cambiar
+					contraseña </a>
+			</div>
+		</div>
+	</div>
+	<div class="col-md cont">
+		<div class="tab-content">
+			<div class="tab-pane active" id="home" role="tabpanel">
+				<div class="perfil-bor">
+			<h2>Perfil de la empresa</h2>
+		</div>
+				<form action="/update_empre" method="post">
+					<div class="form-row">
+						<div class="form-group col-md">
+							<label for="inputEmail4">Nombre de la empresa</label>
+							<input type="text" name="name" class="form-control" value="{{info.name}}" id="">
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="inputEmail4">Ubicacion</label>
+							<input type="text" name="ubi" class="form-control" value="{{info.ubi}}" id="">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="inputPassword4">Rubro</label>
+							<input type="text" name="nivel" class="form-control" id="" value="{{info.nivel}}"
+								placeholder="Ganaderia, abarrotes...">
+						</div>
+					</div>
+					<div class="form-row">
+
+						<div class="form-group col-md-6">
+							<label for="inputPassword4">Telefono</label>
+							<input type="number" name="telf" class="form-control" value="{{info.telf}}"
+								id="inputPassword4" placeholder="9240000000">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="inputEmail4">Email</label>
+							<input type="email" name="email" class="form-control" value="{{info.email}}"
+								id="inputEmail4">
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary">Actualizar</button>
+				</form>
+
+				<form action="/uploadPicEm" method="post" enctype="multipart/form-data">
+					<div class="form-group mt-3">
+						<label for="exampleInputFile">Logotipo</label>
+						<input accept="image/*" name="image" type="file" class="form-control-file" id="exampleInputFile"
+							aria-describedby="fileHelp">
+						<small id="fileHelp" class="form-text text-muted">Coloca una foto para tu perfil</small>
+					</div>
+					<button type="submit" class="btn btn-primary">Actualizar</button>
+				</form>
+			</div>
+			<div class="tab-pane" id="profile" role="tabpanel">
+				<div class="perfil-bor">
+					<h2>Empleos Publicados</h2>
+				</div>
+				<div class="row row-cols-1 row-cols-md-3">
+					{{#each Job}}
+					<div class="col mb-4">
+						<div class="card h-100">
+							<form action="/work/delete/{{_id}}?_method=DELETE" method="POST">
+								<input type="hidden" name="_method" value="DELETE">
+								<div class="boton rounded float-right">
+									<button type="submit" class="close" data-dismiss="" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+							</form>
+							<div class="image-c">
+									{{#if ../info.image}}
+									<div class="c-im">
+										<img class="card-img-top img-circles autofit" src="{{../info.image}}" alt="">
+									</div>
+									{{else}}
+									<div class="c-im">
+										<img class="card-img-top img-circles autofit" src="/img/default.jpg" alt="">
+									</div>
+									{{/if}}
+									
+									{{#ifcond times "1"}}
+									<p class="text-right"><span class="badge badge-warning">Medio Tiempo</span></p>
+									{{else}}
+									<p class="text-right"><span class="badge badge-info">Tiempo completo</span></p>
+									{{/ifcond}}
+							</div>
+							<div class="card-body " style="background-color: #F5F5F5;">
+								<h5 class="card-title">{{title}}</h5>
+								
+								<p class="card-text">Experiencia previa: {{exper}}</p>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="sub-cat text-left">
+												<a href="/work/registro/allApli/{{_id}}">Solicitantes</a>
+											</div>
+									</div>
+									<div class="col-md-6">
+										<div class="sub-cat text-right">
+												<a>{{nivel}}</a>
+											</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					{{else}}
+					<div class="col-md-6 mx-auto pt-5">
+						<div class="card text-center">
+							<h3 class="card-header  alert-dismissible alert-danger"><strong>Sin Publicaciones</strong></h3>
+							<div class="card-body  ">
+								<h5 class="card-title">Por ahora no hay ninguna publicacion.</h5>
+								<p class="card-text"></p>
+							</div>
+						</div>
+					</div>
+					{{/each}}
+				</div>
+			</div>
+			<div class="tab-pane" id="settings" role="tabpanel">
+				<div class="perfil-bor">
+					<h2>Cambiar contraseña</h2>
+				</div>
+				<form action="/changepass" method="POST">
+					<div class="form-group">
+						<label for="formGroupExampleInput">Nueva Contraseña</label>
+						<input type="text" class="form-control" name="password" id="formGroupExampleInput"
+							placeholder="*******">
+					</div>
+					<div class="form-group">
+						<label for="formGroupExampleInput2">Confirmar Contraseña</label>
+						<input type="text" class="form-control" name="confirm_password" id="formGroupExampleInput2"
+							placeholder="*******">
+					</div>
+					<button type="submit" class="btn btn-primary">Actualizar</button>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="inputEmail4"></label>
+							<input type="text" class="form-control invisible" id="inputEmail4">
+						</div>
+						<div class="form-group col-md-4">
+							<label for="inputPassword4"></label>
+							<input type="text" class="form-control invisible" id="inputPassword4">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

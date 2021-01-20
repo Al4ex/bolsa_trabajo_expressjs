@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-4 mx-auto">
+    <div class="card">
+      <div class="card-header">
+        <h3> Registro de Empresas</h3> 
+      </div>
+      <div class="card-body">
+        <form action="/employer/signup" method="POST">
+          <div class="form-group">
+            <label for="">Nombre de Empresa</label>
+            <input type="text" class="form-control" name="name" placeholder="Nombre" value="{{name}}">
+          </div>
+          <div class="form-group">
+            <label for="">Rubro</label>
+            <input type="text" class="form-control" name="nivel" placeholder="Ejemplo: carnes, abarrotes, campo, etc" value="{{name}}">
+          </div>
+          <div class="form-group">
+            <label for="">Correo</label>
+            <input type="email" class="form-control" name="email" placeholder="Correo" value="{{email}}">
+          </div>
+          <div class="form-group">
+            <label for="">Contraseña</label>
+            <input type="password" class="form-control" name="password" placeholder="Min. 4 palabras" value="{{password}}">
+          </div>
+          <div class="form-group">
+            <label for="">Cofirmar contraseña</label>
+            <input type="password" class="form-control" name="confirm_password" placeholder="Confirma tu contraseña" value="{{confirm_password}}">
+          </div>
+          <button class="btn btn-primary btn-block">
+            Signup 
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

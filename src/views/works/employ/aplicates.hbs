@@ -1,0 +1,47 @@
+<div class="perfil-bor">
+    <h2>Lista de Solicitudes</h2>
+</div>
+
+<div class="mt-4">
+    <div class="row row-cols-1 row-cols-md-3">
+        {{#each app}}
+        <div class="col mb-4">
+            <div class="card">
+                {{#if image}}
+                <div class="c-i">
+                    <img class="card-img-top img-circles autofit" src="{{image}}" alt="">
+                </div>
+                {{else}}
+                <div class="c-i">
+                    <img class="card-img-top img-circles autofit" src="/img/default.jpg" alt="">
+                </div>
+                {{/if}}
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{name}} {{apds}}</h5>
+                    <p class="card-text"> <i class="fa fa-book" aria-hidden="true"></i> Educacion: {{#ifcond nivel "1"}}
+                        Primaria {{/ifcond}}
+                        {{#ifcond nivel "2"}} Secundaria {{/ifcond}}
+                        {{#ifcond nivel "3"}} Bachiller {{/ifcond}}
+                        {{#ifcond nivel "4"}} Carrera {{/ifcond}}
+                    </p>
+                    <p class="card-text">
+                        <i class="fas fa-mobile-alt    "></i> N° de telefono: {{telf}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <div class="card col-md-4 mx-auto">
+            <div class="card-body">
+                <h1></h1>
+                <div class="alert alert-info" role="alert">
+                    <strong>Por ahora no hay ningun solicitante.</strong>
+                    <br>
+                    <a href="/work/registro"><button type="button" name="" id=""
+                            class="btn btn-primary btn-block">Regresar</button></a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

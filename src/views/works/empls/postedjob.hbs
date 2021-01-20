@@ -1,0 +1,89 @@
+<div class="row c">
+	<div class="col-md-3 pt-5 usersidebar">
+		<div class="mx-auto text-center">
+			<center>
+				<div class="image">
+					{{#if info.image}} 
+					<img src="{{info.image}}" alt="image" title="{{info.name}}" class=" img-circle autofit2">
+					{{else}}
+					<img src="/img/default.jpg" alt="image" title="{{info.name}}" class=" img-circle autofit2">
+					{{/if}} 
+				</div>
+			</center>
+			<h4 class="card-title">{{info.name}}</h4>
+			<ul class="list-group text-left">
+				<li class="list-group"><div class="font-italic">            <i class="fas fa-mobile-alt    "></i>    {{info.telf}}</small></li>
+				<li class="list-group"><div class="font-italic"><i class="fas fa-map-marker-alt    "></i> {{info.ubi}}</small></li>
+				<br>
+				<li class="list-group"><div class="big" > Rubro: </div> <div class="font-italic">{{info.nivel}}</div></li>
+				<li class="list-group"><div class="big" > Correo: </div> <div class="font-italic">{{info.email}}</div></li>
+				<br>
+				<a href="/work/registro"> <button type="button" class="btn btn-primary"> <i class="fas fa-edit    "></i> Editar</button></a>
+			</ul>
+			
+			<div></div>
+		</div>
+	</div>
+	<div class="col-md cont">
+		<div class="perfil-bor">
+			<h2>Publicar empleo</h2>
+		</div>
+		<div class="tab-content">
+			<div class="tab-pane active" id="home" role="tabpanel">
+				<form action="/new_job" method="post">
+					<div class="form-row">
+						<div class="form-group col-md">
+							<label for="inputEmail4">Titulo del trabajo</label>
+							<input type="text" name="title" class="form-control" id="inputEmail4">
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="inputEmail4">Horas de trabajo</label>
+							<input type="text" name="jobduration" class="form-control" id="inputEmail4">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="inputEmail4">Experencia Previa</label>
+							<select name="exper" id="inputState" class="form-control">
+                                <option value="0">Elija Una opcion</option>
+								<option value="Si">SI</option>
+								<option value="No">No</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="inputEmail4">Sueldo Mensual</label>
+							<div class="form-group">
+								<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">$</span>
+								</div>
+								<input type="text" name="sueldo" class="form-control" aria-label="Amount (to the nearest dollar)">
+								<div class="input-group-append">
+									<span class="input-group-text">.00</span>
+								</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group col-md-6">
+							<label for="inputEmail4">Tipo de trabajo</label>
+							<select name="times" id="inputState" class="form-control">
+                                <option value="0">Elija Una opcion</option>
+								<option value="1"><span class="badge badge-warning">Medio Tiempo</span></option>
+								<option value="2"><span class="badge badge-danger">Tiempo completo</span></option>
+							</select>
+						</div>
+					</div>
+                    <div class="form-row">
+                        <div class="form-group col-md">
+                            <label for="exampleFormControlTextarea1">Descripcion de Empleo</label>
+                            <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                    </div>
+					<button type="submit" class="btn btn-primary">Publicar empleo</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
