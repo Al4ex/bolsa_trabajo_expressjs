@@ -217,7 +217,7 @@ body {
 } */
 }
 @media (max-width:767px) {
-  .mx-auto.text-center img{
+  .mx-auto.text-center .image{
     width: 10rem;
     height: 10rem;
     margin: 0;
