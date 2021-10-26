@@ -218,8 +218,8 @@ body {
 }
 @media (max-width:767px) {
   .mx-auto.text-center .image{
-    width: 10rem;
-    height: 10rem;
+    width: 2rem;
+    height: 2rem;
     margin: 0;
     
   }
