@@ -173,7 +173,11 @@
 									</div>
 								</form>
 								<div class="c-im">
-									<img class="card-img-top img-circles autofit" src="{{image}}" alt="">
+									{{#if image}}
+										<img class="card-img-top img-circles autofit" src="{{image}}" alt="">
+									{{#else}}
+										<img class="card-img-top img-circles autofit" src="/img/default.jpg" alt="">
+									{{/if}}
 								</div>
 								{{#ifcond times "1"}}
 								<p class="text-right"><span class="badge badge-warning">Medio Tiempo</span></p>
