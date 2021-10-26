@@ -218,8 +218,8 @@ body {
 }
 @media (max-width:767px) {
   .mx-auto.text-center img{
-    width: 2rem;
-    height: 2rem;
+    width: 4rem;
+    height: 4rem;
     
   }
   .usersidebar{
