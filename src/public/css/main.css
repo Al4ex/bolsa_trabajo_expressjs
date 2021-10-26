@@ -217,10 +217,9 @@ body {
 } */
 }
 @media (max-width:767px) {
-  .mx-auto.text-center img{
+  /* .mx-auto.text-center img{
     display: none;
-    
-  }
+  } */
   .usersidebar{
     top: -1rem;
   }
